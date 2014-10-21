@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Sign Up</title>
     <link href="Styles/Site.css" rel="stylesheet" />
-    <script src="Scripts/jquery-2.0.3.js"></script>
+    <script src="Scripts/jquery-2.1.1.js"></script>
      <script>
          $(document).ready(function () {            
 
