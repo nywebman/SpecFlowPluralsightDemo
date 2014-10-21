@@ -68,18 +68,26 @@ namespace DemoExampleSite.specs
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Password Strength Indicator")]
         [NUnit.Framework.CategoryAttribute("authenticationSuperset")]
-        public virtual void PasswordStrengthIndicator()
+        [NUnit.Framework.TestCaseAttribute("pass", "Poor", null)]
+        [NUnit.Framework.TestCaseAttribute("password", "Average", null)]
+        [NUnit.Framework.TestCaseAttribute("long password", "Awesome", null)]
+        public virtual void PasswordStrengthIndicator(string password, string strength, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Password Strength Indicator", new string[] {
-                        "authenticationSuperset"});
+            string[] @__tags = new string[] {
+                    "authenticationSuperset"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Password Strength Indicator", @__tags);
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
  testRunner.Given("I\'m on the registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.When("I enter a password of Pass", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I enter a password of {0}", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
- testRunner.Then("the password strength indicator should read Poor", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("the password strength indicator should read {0}", strength), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

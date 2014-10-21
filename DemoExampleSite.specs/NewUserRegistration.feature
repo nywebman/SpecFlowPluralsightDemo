@@ -4,7 +4,13 @@
 	I want to create an account
 
 @authenticationSuperset
-Scenario: Password Strength Indicator
+Scenario Outline: Password Strength Indicator
 	Given I'm on the registration page
-	When I enter a password of Pass
-	Then the password strength indicator should read Poor
+	When I enter a password of <password>
+	Then the password strength indicator should read <strength>
+
+Examples: 
+| password      | strength |
+| pass          | Poor     |
+| password      | Average  |
+| long password | Awesome  |
