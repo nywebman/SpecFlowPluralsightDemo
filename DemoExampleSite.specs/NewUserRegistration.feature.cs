@@ -67,6 +67,14 @@ namespace DemoExampleSite.specs
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 7
+#line 8
+ testRunner.Given("I\'m on the registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Password Strength Indicator")]
         [NUnit.Framework.TestCaseAttribute("pass", "Poor", null)]
@@ -75,13 +83,13 @@ namespace DemoExampleSite.specs
         public virtual void PasswordStrengthIndicator(string password, string strength, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Password Strength Indicator", exampleTags);
-#line 7
-this.ScenarioSetup(scenarioInfo);
-#line 8
- testRunner.Given("I\'m on the registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
- testRunner.When(string.Format("I enter a password of {0}", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line 11
+ testRunner.When(string.Format("I enter a password of {0}", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 12
  testRunner.Then(string.Format("the password strength indicator should read {0}", strength), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -92,17 +100,17 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void UserNameAlreadyInUse()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User Name Already in Use", ((string[])(null)));
-#line 18
-this.ScenarioSetup(scenarioInfo);
-#line 19
- testRunner.Given("I\'m on the registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 20
- testRunner.When("I enter valid new user details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
 #line 21
-  testRunner.But("the user name MrAwesome is already taken", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
+ testRunner.When("I enter valid new user details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 22
- testRunner.When("I try to proceed with registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.But("the user name MrAwesome is already taken", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
 #line 23
+ testRunner.When("I try to proceed with registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 24
  testRunner.Then("I should see an error Sorry, that username is already in use", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
