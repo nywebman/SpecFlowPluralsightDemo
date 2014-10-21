@@ -70,6 +70,7 @@
     <Compile Include="NewUserRegistrationSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScenarioBeforeAndAfter.cs" />
+    <Compile Include="TestData.cs" />
     <Compile Include="WebBrowser.cs" />
   </ItemGroup>
   <ItemGroup>

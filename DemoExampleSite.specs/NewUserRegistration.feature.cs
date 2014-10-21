@@ -20,6 +20,7 @@ namespace DemoExampleSite.specs
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("New User Registration")]
+    [NUnit.Framework.CategoryAttribute("authenticationSuperset")]
     public partial class NewUserRegistrationFeature
     {
         
@@ -33,7 +34,8 @@ namespace DemoExampleSite.specs
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "New User Registration", "In order to get access to the member-only features\r\nAs a potential user\r\nI want t" +
-                    "o create an account", ProgrammingLanguage.CSharp, ((string[])(null)));
+                    "o create an account", ProgrammingLanguage.CSharp, new string[] {
+                        "authenticationSuperset"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -67,19 +69,12 @@ namespace DemoExampleSite.specs
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Password Strength Indicator")]
-        [NUnit.Framework.CategoryAttribute("authenticationSuperset")]
         [NUnit.Framework.TestCaseAttribute("pass", "Poor", null)]
         [NUnit.Framework.TestCaseAttribute("password", "Average", null)]
         [NUnit.Framework.TestCaseAttribute("long password", "Awesome", null)]
         public virtual void PasswordStrengthIndicator(string password, string strength, string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "authenticationSuperset"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Password Strength Indicator", @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Password Strength Indicator", exampleTags);
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
@@ -88,6 +83,27 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When(string.Format("I enter a password of {0}", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
  testRunner.Then(string.Format("the password strength indicator should read {0}", strength), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User Name Already in Use")]
+        public virtual void UserNameAlreadyInUse()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User Name Already in Use", ((string[])(null)));
+#line 18
+this.ScenarioSetup(scenarioInfo);
+#line 19
+ testRunner.Given("I\'m on the registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 20
+ testRunner.When("I enter valid new user details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 21
+  testRunner.But("the user name MrAwesome is already taken", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
+#line 22
+ testRunner.When("I try to proceed with registration", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 23
+ testRunner.Then("I should see an error Sorry, that username is already in use", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
